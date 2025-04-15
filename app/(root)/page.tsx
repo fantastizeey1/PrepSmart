@@ -4,8 +4,22 @@ import React from 'react'
  import Image from "next/image";
  import {dummyInterviews} from "@/constants";
  import InterviewCard from "@/Components/InterviewCard";
+import { getCurrentUser } from '@/lib/actions/auth.action';
+import { getInterviewsByUserId, getLatestInterviews } from '@/lib/actions/general.action';
  
- const Page = () => {
+ const Page = async() => {
+  const user = await getCurrentUser();
+
+  const [userInterviews, latestIntervies ] = await Promise.all([
+    await getInterviewsByUserId(user?.id!),
+    await getLatestInterviews({
+      userId: user?.id!,})
+
+  ])
+ 
+  const hasPastInterviews = userInterviews?.length > 0;
+  const hasUpcomingInterviews = latestIntervies?.length > 0;
+
   return (
     <>
       <section className="card-cta">
@@ -26,18 +40,38 @@ import React from 'react'
       <section className="flex flex-col gap-6 mt-8">
         <h2>Your Interviews</h2>
         <div className="interviews-section">
-          {dummyInterviews.map((interview) => (
-            <InterviewCard {...interview} key={interview.id} />
-          ))}
+
+          {hasPastInterviews ? (
+            userInterviews?.map((interview) => (
+              <InterviewCard {...interview} key={interview.id} />
+            ))
+          ) : (
+            <div className="no-interviews">
+              <p>You have no past interviews.</p>
+              <Link href="/interview" className="btn-primary">
+                Take an Interview
+              </Link>
+            </div>
+          )}
+          
         </div>
       </section>
   
       <section className="flex flex-col gap-6 mt-8">
         <h2>Take an Interview</h2>
         <div className="interviews-section">
-          {dummyInterviews.map((interview) => (
-            <InterviewCard {...interview} key={interview.id} />
-          ))}
+        {hasUpcomingInterviews ? (
+            latestIntervies?.map((interview) => (
+              <InterviewCard {...interview} key={interview.id} />
+            ))
+          ) : (
+            <div className="no-interviews">
+              <p>There are no new interveiws available</p>
+              <Link href="/interview" className="btn-primary">
+                Take an Interview
+              </Link>
+            </div>
+          )}
         </div>
       </section>
     </>

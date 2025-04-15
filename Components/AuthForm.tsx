@@ -91,7 +91,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
       }
     } catch (error) {
       console.log(error);
-      toast.error(`There was an error: ${error}`);
+      toast.error(`There was an error signing in: ${error}`);
     }
   };
 
