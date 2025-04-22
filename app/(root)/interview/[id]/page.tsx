@@ -23,6 +23,7 @@ const InterviewDetails = async ({ params }: RouteParams) => {
     interviewId: id,
     userId: user?.id!,
   });
+  
 
   return (
     <>
