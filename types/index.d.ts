@@ -39,12 +39,8 @@ interface User {
 }
 
 interface InterviewCardProps {
-  interviewId?: string;
-  userId?: string;
-  role: string;
-  type: string;
-  techstack: string[];
-  createdAt?: string;
+  interview: Interview;
+  feedback?: Feedback | null;
 }
 
 interface AgentProps {
