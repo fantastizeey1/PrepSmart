@@ -18,9 +18,17 @@ const layout = async ({ children }: { children: ReactNode }) => {
         </Link>
 
         <form action={signOut}>
-          <button type="submit" className="text-red-500 shadow cusor:pointer text-sm">
+          <button
+            type="submit"
+            className="text-red-500 shadow cursor:pointer text-sm"
+          >
             <Image
-              src="/log-out.svg" alt="log-out" width={30} height={30} className="cursor-pointer transition-transform duration-200 hover:scale-125"/>
+              src="/log-out.svg"
+              alt="log-out"
+              width={30}
+              height={30}
+              className="cursor-pointer transition-transform duration-200 hover:scale-125"
+            />
           </button>
         </form>
       </nav>

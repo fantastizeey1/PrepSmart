@@ -1,106 +1,106 @@
-# Prepsmart
+# 🤖 PrepSmart - AI-Powered Interview Preparation
 
-**Prepsmart** is an advanced, AI-powered job interview preparation platform built with a modern tech stack including **Next.js**, **Firebase**, **Tailwind CSS**, **Vapi AI**, and **Google Gemini**. The platform seamlessly merges cutting-edge artificial intelligence with sleek, responsive design to deliver a rich, interactive, and immersive preparation experience tailored for job seekers. Whether you're preparing for your first job interview or looking to refine your skills, Prepsmart offers intelligent, engaging tools to help you succeed.
-
----
-
-## ⚙️ Tech Stack
-
-- **Next.js** – Powers the front-end and back-end with server-side rendering and dynamic routing.
-- **Firebase** – Manages secure authentication and scalable real-time database operations.
-- **Tailwind CSS** – A utility-first CSS framework that provides fully responsive and highly customizable styling.
-- **Vapi AI** – Implements smart voice agents for simulated conversational interviews.
-- **Google Gemini** – Supplies generative AI to enrich interview scenarios and provide insightful feedback.
-- **shadcn/ui** – Offers a comprehensive suite of elegant and accessible UI components.
-- **Zod** – Ensures strong schema validation and type safety for forms and APIs.
+**PrepSmart** is a cutting-edge, AI-driven platform designed to revolutionize how job seekers prepare for interviews. Built with **Next.js 15**, **Firebase**, **Vapi AI**, and **Google Gemini**, it provides an immersive simulation experience that feels like a real conversation.
 
 ---
 
-## 🔋 Features
+## ✨ Features
 
-### 👉 Authentication
-Robust and secure authentication system that supports email/password login, powered by Firebase Authentication. User sessions are persistent and securely stored for a seamless experience.
-
-### 👉 Create Interviews
-Effortlessly generate customized job interview scenarios. Vapi's voice agents collaborate with Google Gemini to simulate human-like conversations tailored to job roles and industries.
-
-### 👉 Get Feedback from AI
-Interact with AI voice agents in real-time and receive detailed, structured feedback instantly after the session. Insights include tone analysis, key response highlights, and improvement suggestions.
-
-### 👉 Modern UI/UX
-Polished, intuitive interface designed with Tailwind CSS and shadcn/ui for fluid navigation and accessibility. Every screen is crafted for user efficiency and visual clarity.
-
-### 👉 Interview Page
-A dedicated space to conduct live, AI-driven voice interviews. Features include real-time audio interaction, transcription display, voice replay, and integrated feedback summaries.
-
-### 👉 Dashboard
-Centralized dashboard to monitor interview history, track progress, and revisit transcripts. Users can also manage profile settings and configure preferences easily.
-
-### 👉 Responsive Design
-Fully responsive layout that functions beautifully across desktops, tablets, and mobile devices. Optimized performance and fluid layouts ensure accessibility anytime, anywhere.
-
-### 👉 Extensible and Scalable
-Built with modular architecture, making it easy to extend functionality, add new AI agents, or integrate with additional APIs in future.
+- **🗣️ AI Voice Interviews**: Practice with real-time AI agents powered by Vapi AI.
+- **🧠 Intelligent Feedback**: Receive detailed analysis on your communication, technical skills, and posture (via Google Gemini).
+- **� Secure Authentication**: Robust login system with Firebase.
+- **📊 Performance Dashboard**: Track your progress and review past interview transcripts.
+- **🎨 Modern Dark UI**: Sleek, responsive design built with Tailwind CSS and shadcn/ui.
 
 ---
 
-## 🚀 Getting Started
+## �️ Tech Stack
 
-1. **Clone the repository**
+- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Database & Auth**: [Firebase](https://firebase.google.com/)
+- **Voice AI**: [Vapi AI](https://vapi.ai/)
+- **LLM**: [Google Gemini 2.0 Flash](https://deepmind.google/technologies/gemini/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Validation**: [Zod](https://zod.dev/)
+
+---
+
+## � Getting Started
+
+### 1. Prerequisites
+
+- Node.js 20+ installed
+- A Firebase project
+- Vapi AI and Google Gemini API keys
+
+### 2. Clone the Repository
+
 ```bash
 git clone https://github.com/fantastizeey1/PrepSmart.git
 cd PrepSmart
 ```
 
-2. **Install dependencies**
+### 3. Install Dependencies
+
 ```bash
 npm install
 ```
 
-3. **Set up environment variables**
-Create a `.env.local` file in the root directory and include your Firebase configuration along with any required API keys.
+### 4. Environment Variables
 
-4. **Run the development server**
+Create a `.env.local` file in the root and add the following:
+
+```env
+# Firebase Client (Public)
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# Firebase Admin (Server)
+FIREBASE_PROJECT_ID=your_project_id
+FIREBASE_CLIENT_EMAIL=your_service_account_email
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+
+# AI Services
+GOOGLE_GENERATIVE_AI_API_KEY=your_gemini_api_key
+NEXT_PUBLIC_VAPI_PUBLIC_KEY=your_vapi_public_key
+NEXT_PUBLIC_VAPI_WORKFLOW_ID=your_vapi_workflow_id
+```
+
+### 5. Run Development Server
+
 ```bash
 npm run dev
 ```
-Visit `http://localhost:3000` to view the app in your browser.
+
+Open [http://localhost:3000](http://localhost:3000) to see the result.
 
 ---
 
 ## 📁 Folder Structure
+
 ```
 PrepSmart/
-├── components/          # Reusable UI components
-├── app/                 # Next.js pages and routing
-├── lib/                 # Utility functions and API handlers
-├── styles/              # Global styles and Tailwind setup
-├── firebase/            # Firebase setup and helper files
-├── hooks/               # Custom React hooks for state management and side effects
-├── types/               # Shared TypeScript types
-└── public/              # Static files and assets (e.g. icons, images)
+├── app/                 # Next.js App Router (pages, layouts, api)
+├── Components/          # React components (including shadcn/ui)
+├── firebase/            # Firebase config & Admin SDK initialization
+├── lib/                 # Server actions and utility functions
+├── public/              # Static assets (images, logos)
+├── types/               # TypeScript definitions
+└── constants/           # Shared constants & schemas
 ```
-
----
-
-## 📌 Highlights
-- Thoughtfully modular codebase designed for maintainability and scalability
-- Real-time AI-driven voice interactions with dynamic feedback
-- Clean, reusable UI components powered by shadcn/ui
-- Robust form validation and API safety with Zod
-- Easy to deploy, extend, and customize for future features
 
 ---
 
 ## 📄 License
-This project is licensed under the MIT License. You are free to use, modify, and distribute it with attribution.
 
----
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙌 Acknowledgements
-- [Vapi AI](https://www.vapi.ai/) – For providing conversational AI capabilities
-- [Firebase](https://firebase.google.com/) – For authentication and cloud database services
-- [Google Gemini](https://deepmind.google/technologies/gemini/) – For generative AI and intelligent insights
-- [Tailwind CSS](https://tailwindcss.com/) – For styling and responsive design utilities
-- [shadcn/ui](https://ui.shadcn.com/) – For elegant and accessible React components
 
+- Thanks to the Vapi AI team for the incredible voice capabilities.
+- Powered by Google Gemini.

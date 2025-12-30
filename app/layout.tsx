@@ -8,20 +8,20 @@ const MonaSans = Mona_Sans({
   subsets: ["latin"],
 });
 
-
-
 export const metadata: Metadata = {
   title: "PrepSmart",
-  description: "PrepSmart - Your AI-Powered Interview Preparation Assistant Platform",
-  metadataBase: new URL("https://prepsmartz.vercel.app/"), 
+  description:
+    "PrepSmart - Your AI-Powered Interview Preparation Assistant Platform",
+  metadataBase: new URL("https://prepsmartz.vercel.app/"),
   openGraph: {
     title: "PrepSmart",
-    description: "PrepSmart - Your AI-Powered Interview Preparation Assistant Platform",
+    description:
+      "PrepSmart - Your AI-Powered Interview Preparation Assistant Platform",
     url: "https://prepsmartz.vercel.app/",
     siteName: "PrepSmart",
     images: [
       {
-        url: "/ogimage.png", 
+        url: "/ogimage.png",
         width: 1200,
         height: 630,
         alt: "PrepSmart – Your AI Interview Assistant",
@@ -32,11 +32,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "PrepSmart",
-    description: "PrepSmart - Your AI-Powered Interview Preparation Assistant Platform",
+    description:
+      "PrepSmart - Your AI-Powered Interview Preparation Assistant Platform",
     images: ["/ogimage.png"],
   },
 };
-
 
 export default function RootLayout({
   children,
@@ -44,13 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body
-        className={`${MonaSans.className}  antialiased pattern`}
-      >
+    <html lang="en" className="dark" suppressHydrationWarning>
+      <body className={`${MonaSans.className}  antialiased pattern`}>
         {children}
 
-        <Toaster/>
+        <Toaster />
       </body>
     </html>
   );

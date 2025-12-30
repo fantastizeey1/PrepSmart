@@ -18,7 +18,7 @@ import { Form } from "@/Components/ui/form";
 import { Button } from "@/Components/ui/button";
 
 import { signIn, signUp } from "@/lib/actions/auth.action";
-import FormField from "./FormFeild";
+import FormField from "./FormField";
 
 const authFormSchema = (type: FormType) => {
   return z.object({
@@ -128,7 +128,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
               label="Email"
               placeholder="Your email address"
               type="email"
-            /> 
+            />
 
             <FormField
               control={form.control}
