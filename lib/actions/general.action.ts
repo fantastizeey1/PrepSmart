@@ -112,6 +112,23 @@ export async function getLatestInterviews(
   })) as Interview[];
 }
 
+export async function getFeedbacksByUserId(
+  userId?: string
+): Promise<Feedback[] | null> {
+  if (!userId) return null;
+
+  const feedbacks = await db
+    .collection("feedback")
+    .where("userId", "==", userId)
+    .orderBy("createdAt", "desc")
+    .get();
+
+  return feedbacks.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  })) as Feedback[];
+}
+
 
 export async function getInterviewsByUserId(
   userId?: string
